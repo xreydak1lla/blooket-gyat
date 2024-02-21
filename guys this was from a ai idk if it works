@@ -1,93 +1,83 @@
-// Mod Menu
-const modMenu = document.createElement('div');
-modMenu.id = 'mod-menu';
-modMenu.style.position = 'fixed';
-modMenu.style.top = '0';
-modMenu.style.right = '0';
-modMenu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-modMenu.style.padding = '10px';
-modMenu.style.borderRadius = '0 0 10px 0';
+javascript:(function() {
+  const modMenu = document.createElement('div');
+  modMenu.id = 'mod-menu';
+  modMenu.style.position = 'fixed';
+  modMenu.style.top = '0';
+  modMenu.style.right = '0';
+  modMenu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modMenu.style.padding = '10px';
+  modMenu.style.borderRadius = '0 0 10px 0';
 
-const modMenuTitle = document.createElement('h1');
-modMenuTitle.textContent = 'Mod Menu';
-modMenuTitle.style.color = 'white';
-modMenuTitle.style.marginBottom = '10px';
+  const modMenuTitle = document.createElement('h1');
+  modMenuTitle.textContent = 'Mod Menu';
+  modMenuTitle.style.color = 'white';
+  modMenuTitle.style.marginBottom = '10px';
 
-const modMenuCloseButton = document.createElement('button');
-modMenuCloseButton.textContent = 'X';
-modMenuCloseButton.style.position = 'absolute';
-modMenuCloseButton.style.top = '5px';
-modMenuCloseButton.style.right = '5px';
-modMenuCloseButton.style.backgroundColor = 'transparent';
-modMenuCloseButton.style.border = 'none';
-modMenuCloseButton.style.color = 'white';
-modMenuCloseButton.style.fontSize = '16px';
-modMenuCloseButton.style.cursor = 'pointer';
-modMenuCloseButton.onclick = () => {
+  const modMenuCloseButton = document.createElement('button');
+  modMenuCloseButton.textContent = 'X';
+  modMenuCloseButton.style.position = 'absolute';
+  modMenuCloseButton.style.top = '5px';
+  modMenuCloseButton.style.right = '5px';
+  modMenuCloseButton.style.backgroundColor = 'transparent';
+  modMenuCloseButton.style.border = 'none';
+  modMenuCloseButton.style.color = 'white';
+  modMenuCloseButton.style.fontSize = '16px';
+  modMenuCloseButton.style.cursor = 'pointer';
+  modMenuCloseButton.onclick = () => {
     modMenu.style.display = 'none';
-};
+  };
 
-const modMenuOptions = document.createElement('div');
+  const modMenuOptions = document.createElement('div');
 
-const flyOption = document.createElement('button');
-flyOption.textContent = 'Fly';
-flyOption.onclick = () => {
+  const flyOption = document.createElement('button');
+  flyOption.textContent = 'Fly';
+  flyOption.onclick = () => {
     window.gameVars.Game.player.fly = !window.gameVars.Game.player.fly;
-};
+  };
 
-const speedOption = document.createElement('button');
-speedOption.textContent = 'Speed';
-speedOption.onclick = () => {
+  const speedOption = document.createElement('button');
+  speedOption.textContent = 'Speed';
+  speedOption.onclick = () => {
     window.gameVars.Game.player.speed = window.gameVars.Game.player.speed === 1 ? 5 : 1;
-};
+  };
 
-const noClipOption = document.createElement('button');
-noClipOption.textContent = 'No Clip';
-noClipOption.onclick = () => {
+  const noClipOption = document.createElement('button');
+  noClipOption.textContent = 'No Clip';
+  noClipOption.onclick = () => {
     window.gameVars.Game.player.noclip = !window.gameVars.Game.player.noclip;
-};
+  };
 
-const jumpOption = document.createElement('button');
-jumpOption.textContent = 'Jump';
-jumpOption.onclick = () => {
+  const jumpOption = document.createElement('button');
+  jumpOption.textContent = 'Jump';
+  jumpOption.onclick = () => {
     window.gameVars.Game.player.jumpHeight = window.gameVars.Game.player.jumpHeight === 1 ? 20 : 1;
-};
+  };
 
-const spawnOption = document.createElement('button');
-spawnOption.textContent = 'Spawn';
-spawnOption.onclick = () => {
+  const spawnOption = document.createElement('button');
+  spawnOption.textContent = 'Spawn';
+  spawnOption.onclick = () => {
     window.gameVars.Game.player.spawn();
-};
+  };
 
-const killOption = document.createElement('button');
-killOption.textContent = 'Kill';
-killOption.onclick = () => {
+  const killOption = document.createElement('button');
+  killOption.textContent = 'Kill';
+  killOption.onclick = () => {
     window.gameVars.Game.player.health = 0;
-};
+  };
 
-const godOption = document.createElement('button');
-godOption.textContent = 'God';
-godOption.onclick = () => {
+  const godOption = document.createElement('button');
+  godOption.textContent = 'God';
+  godOption.onclick = () => {
     window.gameVars.Game.player.god = !window.gameVars.Game.player.god;
-};
+  };
 
-const clearInventoryOption = document.createElement('button');
-clearInventoryOption.textContent = 'Clear Inventory';
-clearInventoryOption.onclick = () => {
+  const clearInventoryOption = document.createElement('button');
+  clearInventoryOption.textContent = 'Clear Inventory';
+  clearInventoryOption.onclick = () => {
     window.gameVars.Game.player.inventory = [];
-};
+  };
 
-const clearQuestsOption = document.createElement('button');
-clearQuestsOption.textContent = 'Clear Quests';
-clearQuestsOption.onclick = () => {
-    window.gameVars.Game.player.quests = [];
-};
-
-const clearStatsOption = document.createElement('button');
-clearStatsOption.textContent = 'Clear Stats';
-clearStatsOption.onclick = () => {
-    window.gameVars.Game.player.stats = {
-        kills: 0,
-        deaths: 0,
-        blocksPlaced: 0,
-        blocksDestroyed: 0,
+  const clearQuestsOption = document.createElement('button');
+  clearQuestsOption.textContent = 'Clear Quests';
+  clearQuestsOption.onclick = () => {
+    window.gameVars
